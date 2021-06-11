@@ -2,6 +2,13 @@ ESX = nil
 
 TriggerEvent('esx:getSharedObject', function(obj) ESX = obj end)
 
+AddEventHandler('onResourceStart', function(resource)
+	if resource == GetCurrentResourceName() then
+		Citizen.Wait(5000)
+		print('[^2kibra:discordstatus^0] - ^1Started^0')
+	end
+end)
+
 RegisterServerEvent("kibra-discordstatus:serveronline")
 AddEventHandler("kibra-discordstatus:serveronline", function()
     local xPlayer = ESX.GetPlayerFromId(source)
